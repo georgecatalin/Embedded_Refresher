@@ -57,7 +57,7 @@ This repository serves as a collection of hands-on practice work completed while
 - System calls and kernel interfaces
 - Performance optimization techniques
 
-#### 🛠️ Technologies & Tools
+## 🛠️ Technologies & Tools
 
 - **Microcontrollers**: STM32 (ARM Cortex-M series)
 - **IDE**: STM32CubeIDE, Eclipse CDT
