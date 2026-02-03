@@ -39,6 +39,24 @@ This repository serves as a collection of hands-on practice work completed while
 - Advanced debugging and analysis
 - Working with larger programs
 
+### 3. Linux System Programming Techniques and Concepts
+- **Platform**: Udemy
+- **Link**: https://www.udemy.com/course/advance-programming-concepts/
+- **Skill Level**: Advanced
+- **Status**: In Progress
+- **Directory**: `Linux_System_Programming_Techniques_and_Concepts/`
+
+#### Key Topics Covered:
+- Linux system architecture and internals
+- Process management and inter-process communication (IPC)
+- Memory management techniques
+- File I/O and filesystem concepts
+- Signal handling
+- Multi-threading and synchronization
+- Network programming on Linux
+- System calls and kernel interfaces
+- Performance optimization techniques
+
 #### 🛠️ Technologies & Tools
 
 - **Microcontrollers**: STM32 (ARM Cortex-M series)
@@ -46,5 +64,16 @@ This repository serves as a collection of hands-on practice work completed while
 - **Compilers**: GCC, ARM GCC
 - **Languages**: C (embedded C)
 - **Debugging**: SWD/JTAG, ITM (Instrumentation Trace Macrocell)
-- **Hardware**: STM32 Nucleo-144 development boards
+- **Hardware**: STM32 Nucleo-144 development boards, x86 or x86-64 PC
+- **Operating System**: Linux (for system programming topics)
 
+## Disclaimer
+
+This repository contains **my own practice implementations** created while learning.  
+It does **not** contain or redistribute paid course videos or proprietary course materials.
+
+## Author
+
+**George Calin**
+- Email: george.calin [at] gmail.com
+- LinkedIn: https://www.linkedin.com/in/cgeorge1978/
