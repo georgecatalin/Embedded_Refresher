@@ -12,7 +12,7 @@ This repository serves as a collection of hands-on practice work completed while
 - **Platform**: Udemy
 - **Link**: https://www.udemy.com/course/microcontroller-embedded-c-programming/
 - **Target Hardware**: STM32F429ZI (ARM Cortex-M4)
-- **Status**: In Progress
+- **Status**: Completed
 - **Directory**: `Microcontroller Embedded C Programming Absolute Beginners/`
 
 ### 2. Advanced C Programming Course
@@ -20,7 +20,7 @@ This repository serves as a collection of hands-on practice work completed while
 - **Instructors**: Tim Buchalka's Learn Programming Academy and Jason Fedin
 - **Link**: https://www.udemy.com/course/advanced-c-programming-course/
 - **Skill Level**: Intermediate and Advanced
-- **Status**: In Progress
+- **Status**: Completed
 - **Directory**: `Advanced_C_Programming/`
 - **Initial Learning Repository**: [Advanced-C-Programming-Course](https://github.com/georgecatalin/Advanced-C-Programming-Course/tree/main)
 
