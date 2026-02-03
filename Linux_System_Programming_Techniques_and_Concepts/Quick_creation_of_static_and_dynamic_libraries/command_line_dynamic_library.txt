@@ -1,0 +1,38 @@
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ls -lh
+total 20K
+-rw-rw-r-- 1 georgeca georgeca    0 Feb  3 15:23 command_line_dynamic_library.txt
+-rw-rw-r-- 1 georgeca georgeca 2,1K Feb  3 15:23 command_line_static_library.txt
+-rw-rw-r-- 1 georgeca georgeca  882 Feb  3 15:15 dll.c
+-rw-rw-r-- 1 georgeca georgeca  772 Feb  3 15:12 dll.h
+-rw-rw-r-- 1 georgeca georgeca  379 Feb  3 15:15 dll_util.c
+-rw-rw-r-- 1 georgeca georgeca 3,4K Feb  3 15:22 libdll.a
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ gcc -c -fPIC dll.c -o dll.o
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ gcc -c fPIC dll_util.c -o dll_util.
+o
+gcc: warning: fPIC: linker input file unused because linking not done
+gcc: error: fPIC: linker input file not found: No such file or directory
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ gcc -c -fPIC dll_util.c -o dll_util.o
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ls -lh
+total 28K
+-rw-rw-r-- 1 georgeca georgeca    0 Feb  3 15:23 command_line_dynamic_library.txt
+-rw-rw-r-- 1 georgeca georgeca 2,1K Feb  3 15:23 command_line_static_library.txt
+-rw-rw-r-- 1 georgeca georgeca  882 Feb  3 15:15 dll.c
+-rw-rw-r-- 1 georgeca georgeca  772 Feb  3 15:12 dll.h
+-rw-rw-r-- 1 georgeca georgeca 1,7K Feb  3 15:27 dll.o
+-rw-rw-r-- 1 georgeca georgeca  379 Feb  3 15:15 dll_util.c
+-rw-rw-r-- 1 georgeca georgeca 1,5K Feb  3 15:28 dll_util.o
+-rw-rw-r-- 1 georgeca georgeca 3,4K Feb  3 15:22 libdll.a
+
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ gcc dll.o dll_util.o -shared -o dll
+
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ls -lh
+total 44K
+-rw-rw-r-- 1 georgeca georgeca    0 Feb  3 15:23 command_line_dynamic_library.txt
+-rw-rw-r-- 1 georgeca georgeca 2,1K Feb  3 15:23 command_line_static_library.txt
+-rwxrwxr-x 1 georgeca georgeca  16K Feb  3 15:29 dll
+-rw-rw-r-- 1 georgeca georgeca  882 Feb  3 15:15 dll.c
+-rw-rw-r-- 1 georgeca georgeca  772 Feb  3 15:12 dll.h
+-rw-rw-r-- 1 georgeca georgeca 1,7K Feb  3 15:27 dll.o
+-rw-rw-r-- 1 georgeca georgeca  379 Feb  3 15:15 dll_util.c
+-rw-rw-r-- 1 georgeca georgeca 1,5K Feb  3 15:28 dll_util.o
+-rw-rw-r-- 1 georgeca georgeca 3,4K Feb  3 15:22 libdll.a

@@ -1,0 +1,27 @@
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ls -lh
+total 12K
+-rw-rw-r-- 1 georgeca georgeca   0 Feb  3 15:20 command_line_static_library.txt
+-rw-rw-r-- 1 georgeca georgeca 882 Feb  3 15:15 dll.c
+-rw-rw-r-- 1 georgeca georgeca 772 Feb  3 15:12 dll.h
+-rw-rw-r-- 1 georgeca georgeca 379 Feb  3 15:15 dll_util.c
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ gcc -c dll.c -o dll.o
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ gcc -c dll_util.c -o dll_util.o
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ls -lh
+total 20K
+-rw-rw-r-- 1 georgeca georgeca    0 Feb  3 15:20 command_line_static_library.txt
+-rw-rw-r-- 1 georgeca georgeca  882 Feb  3 15:15 dll.c
+-rw-rw-r-- 1 georgeca georgeca  772 Feb  3 15:12 dll.h
+-rw-rw-r-- 1 georgeca georgeca 1,7K Feb  3 15:22 dll.o
+-rw-rw-r-- 1 georgeca georgeca  379 Feb  3 15:15 dll_util.c
+-rw-rw-r-- 1 georgeca georgeca 1,5K Feb  3 15:22 dll_util.o
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ar rs libdll.a dll.o dll_util.o
+ar: creating libdll.a
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ls -lh
+total 24K
+-rw-rw-r-- 1 georgeca georgeca    0 Feb  3 15:20 command_line_static_library.txt
+-rw-rw-r-- 1 georgeca georgeca  882 Feb  3 15:15 dll.c
+-rw-rw-r-- 1 georgeca georgeca  772 Feb  3 15:12 dll.h
+-rw-rw-r-- 1 georgeca georgeca 1,7K Feb  3 15:22 dll.o
+-rw-rw-r-- 1 georgeca georgeca  379 Feb  3 15:15 dll_util.c
+-rw-rw-r-- 1 georgeca georgeca 1,5K Feb  3 15:22 dll_util.o
+-rw-rw-r-- 1 georgeca georgeca 3,4K Feb  3 15:22 libdll.a
