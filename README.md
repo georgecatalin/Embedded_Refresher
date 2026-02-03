@@ -43,6 +43,7 @@ This repository serves as a collection of hands-on practice work completed while
 
 - **Microcontrollers**: STM32 (ARM Cortex-M series)
 - **IDE**: STM32CubeIDE, Eclipse CDT
+- **Compilers**: GCC, ARM GCC
 - **Languages**: C (embedded C)
 - **Debugging**: SWD/JTAG, ITM (Instrumentation Trace Macrocell)
 - **Hardware**: STM32 Nucleo-144 development boards
