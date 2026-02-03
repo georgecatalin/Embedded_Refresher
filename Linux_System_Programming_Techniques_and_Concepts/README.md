@@ -1,0 +1,25 @@
+# Advance Programming Concepts (Udemy) — Practice Source Code
+
+This repository contains my **practice source code**, experiments, and small notes while taking the Udemy course:
+
+https://www.udemy.com/course/advance-programming-concepts/
+
+## Goals
+
+- Recreate examples from the course to ensure I understand the concepts
+- Solve exercises and extend them with extra scenarios
+- Keep a clean, searchable history of my learning progress
+- Experiment freely (refactors, alternative approaches, edge cases)
+
+### Folder meanings
+
+- **`section-XX/lesson-YY/`**: code tied to specific sections/lectures
+- **`playground/`**: experiments, refactors, spikes, and “what-if” tests
+- **`notes/`**: short notes, summaries, or references (optional)
+
+## Disclaimer
+
+This repository contains **my own practice implementations** created while learning.  
+It does **not** contain or redistribute paid course videos or proprietary course materials.
+
+**Author:** George Calin
