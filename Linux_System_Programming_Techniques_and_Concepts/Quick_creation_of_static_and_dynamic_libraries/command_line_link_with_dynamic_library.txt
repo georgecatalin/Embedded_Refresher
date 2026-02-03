@@ -1,0 +1,37 @@
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ls -lh
+total 80K
+-rw-rw-r-- 1 georgeca georgeca 1,5K Feb  3 15:54 application.c
+-rw-rw-r-- 1 georgeca georgeca 2,5K Feb  3 16:07 application.o
+-rwxrwxr-x 1 georgeca georgeca  16K Feb  3 16:08 application_static
+-rw-rw-r-- 1 georgeca georgeca 2,9K Feb  3 15:31 command_line_dynamic_library.txt
+-rw-rw-r-- 1 georgeca georgeca 6,2K Feb  3 16:09 command_line_link_with_static_library.txt
+-rw-rw-r-- 1 georgeca georgeca 2,1K Feb  3 15:23 command_line_static_library.txt
+-rw-rw-r-- 1 georgeca georgeca  882 Feb  3 15:15 dll.c
+-rw-rw-r-- 1 georgeca georgeca  772 Feb  3 15:12 dll.h
+-rw-rw-r-- 1 georgeca georgeca 1,7K Feb  3 15:27 dll.o
+-rw-rw-r-- 1 georgeca georgeca  379 Feb  3 15:15 dll_util.c
+-rw-rw-r-- 1 georgeca georgeca 1,5K Feb  3 15:28 dll_util.o
+-rw-rw-r-- 1 georgeca georgeca 3,4K Feb  3 15:22 libdll.a
+-rwxrwxr-x 1 georgeca georgeca  16K Feb  3 15:29 libdll.so
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ cp libdll.so  /usr/local/lib
+cp: cannot create regular file '/usr/local/lib/libdll.so': Permission denied
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ sudo cp libdll.so  /usr/local/lib
+[sudo] password for georgeca:           
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ls -lh /usr/local/lib/libdll*
+-rwxr-xr-x 1 root root 16K Feb  3 16:15 /usr/local/lib/libdll.so
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ gcc application.o -o application_dynamic -ldll
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ./application_
+bash: ./application_: No such file or directory
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ./application_dynamic 
+./application_dynamic: error while loading shared libraries: libdll.so: cannot open shared object file: No such file or directory
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ sudo cp libdll.so /usr/lib
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ./application_dynamic 
+Name = Jack
+Age = 29
+weight = 55
+Name = Joseph
+Age = 41
+weight = 70
+Name = Abhishek
+Age = 31
+weight = 75
