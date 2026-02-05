@@ -1,0 +1,2 @@
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Quick_creation_of_static_and_dynamic_libraries$ ulimit -s
+8192
