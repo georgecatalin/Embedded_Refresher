@@ -1,0 +1,74 @@
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Build_projects_using_Makefiles$ ls -lh
+total 20K
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:18 common_math
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:18 complex_math
+-rw-rw-r-- 1 georgeca georgeca    0 Feb  5 13:31 console_log
+-rwxrwxr-x 1 georgeca georgeca  515 Feb  5 13:18 main.c
+-rw-rw-r-- 1 georgeca georgeca  806 Feb  5 13:31 Makefile
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:18 trig_math
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Build_projects_using_Makefiles$ make
+gcc -c -I common_math -I complex_math -I trig_math main.c -o main.o
+cc    -c -o common_math/common_math.o common_math/common_math.c
+cc    -c -o complex_math/complex_math.o complex_math/complex_math.c
+cc    -c -o trig_math/trig_math.o trig_math/trig_math.c
+ar ls libmylib.a common_math/common_math.o complex_math/complex_math.o trig_math/trig_math.o
+ar: libdeps specified more than once
+make: *** [Makefile:6: libmylib.a] Error 1
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Build_projects_using_Makefiles$ ls -lh
+total 24K
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:31 common_math
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:31 complex_math
+-rw-rw-r-- 1 georgeca georgeca    0 Feb  5 13:31 console_log
+-rwxrwxr-x 1 georgeca georgeca  515 Feb  5 13:18 main.c
+-rw-rw-r-- 1 georgeca georgeca 2,2K Feb  5 13:31 main.o
+-rw-rw-r-- 1 georgeca georgeca  806 Feb  5 13:32 Makefile
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:31 trig_math
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Build_projects_using_Makefiles$ make clean
+rm common_math/common_math.o
+rm complex_math/complex_math.o
+rm trig_math/trig_math.o
+rm mai.o
+rm: cannot remove 'mai.o': No such file or directory
+make: *** [Makefile:24: clean] Error 1
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Build_projects_using_Makefiles$ ls -lh
+total 24K
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:32 common_math
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:32 complex_math
+-rw-rw-r-- 1 georgeca georgeca    0 Feb  5 13:31 console_log
+-rwxrwxr-x 1 georgeca georgeca  515 Feb  5 13:18 main.c
+-rw-rw-r-- 1 georgeca georgeca 2,2K Feb  5 13:31 main.o
+-rw-rw-r-- 1 georgeca georgeca  807 Feb  5 13:32 Makefile
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:32 trig_math
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Build_projects_using_Makefiles$ make clean
+rm common_math/common_math.o
+rm: cannot remove 'common_math/common_math.o': No such file or directory
+make: *** [Makefile:21: clean] Error 1
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Build_projects_using_Makefiles$ make
+cc    -c -o common_math/common_math.o common_math/common_math.c
+cc    -c -o complex_math/complex_math.o complex_math/complex_math.c
+cc    -c -o trig_math/trig_math.o trig_math/trig_math.c
+ar rs libmylib.a common_math/common_math.o complex_math/complex_math.o trig_math/trig_math.o
+ar: creating libmylib.a
+gcc main.o -o  my_program -L . libmylib.a -lm 
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Build_projects_using_Makefiles$ ls -lh
+total 48K
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:33 common_math
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:33 complex_math
+-rw-rw-r-- 1 georgeca georgeca    0 Feb  5 13:31 console_log
+-rw-rw-r-- 1 georgeca georgeca 5,7K Feb  5 13:33 libmylib.a
+-rwxrwxr-x 1 georgeca georgeca  515 Feb  5 13:18 main.c
+-rw-rw-r-- 1 georgeca georgeca 2,2K Feb  5 13:31 main.o
+-rw-rw-r-- 1 georgeca georgeca  807 Feb  5 13:32 Makefile
+-rwxrwxr-x 1 georgeca georgeca  16K Feb  5 13:33 my_program
+drwxrwxr-x 2 georgeca georgeca 4,0K Feb  5 13:33 trig_math
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Build_projects_using_Makefiles$ ./my_program 
+two numbers added = 135.000000
+sine of 45.000000 = 0.707179
+adding two complex numbers : 3.000000 + 5.000000
+georgeca@georgeca-VirtualBox:~/my_sandbox/Embedded_Refresher/Linux_System_Programming_Techniques_and_Concepts/Build_projects_using_Makefiles$ make clean
+rm common_math/common_math.o
+rm complex_math/complex_math.o
+rm trig_math/trig_math.o
+rm main.o
+rm libmylib.a
+rm my_program
