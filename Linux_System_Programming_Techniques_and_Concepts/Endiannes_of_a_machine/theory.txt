@@ -1,0 +1,91 @@
+Here is the comprehensive guide on **Endianness** formatted in Markdown for your notes.
+
+# Understanding Endianness in C
+
+**Endianness** refers to the order in which a sequence of bytes is stored in computer memory. Since data types like `int`, `float`, or `long` occupy multiple bytes, the CPU must follow a specific rule to decide which byte is stored at the first (lowest) memory address.
+
+---
+
+## 1. The Two Primary Architectures
+
+Imagine we have a 4-byte (32-bit) integer with the hexadecimal value: **`0x12345678`**.
+
+### Big-Endian
+
+The **most significant byte** (the "big end," `12`) is stored at the lowest memory address. This matches how humans read numbers from left to right.
+
+* **0x00:** `12`
+* **0x01:** `34`
+* **0x02:** `56`
+* **0x03:** `78`
+
+### Little-Endian
+
+The **least significant byte** (the "little end," `78`) is stored at the lowest memory address. This is the standard for x86-64 (Intel/AMD) and most ARM processors.
+
+* **0x00:** `78`
+* **0x01:** `56`
+* **0x02:** `34`
+* **0x03:** `12`
+
+---
+
+## 2. Why It Matters
+
+As a C developer, you usually don't need to worry about this until you deal with:
+
+1. **Networking:** The "Internet Protocol" uses Big-Endian. If your machine is Little-Endian, you must swap bytes using functions like `htons()` or `htonl()`.
+2. **Binary Files:** Files saved on one architecture may be unreadable on another if endianness isn't handled.
+3. **Bit Manipulation:** When using pointers or unions to access individual bytes of a larger data type.
+
+---
+
+## 3. C Program to Verify Endianness
+
+This program uses a **pointer cast** to inspect the first byte of memory. This technique works across **C89, C99, and C11**.
+
+```c
+#include <stdio.h>
+
+int main() {
+    /* * We initialize an integer to 1. 
+     * In hex (4 bytes), this is 0x00000001.
+     */
+    unsigned int x = 1; 
+    
+    /* * Cast the address of the int to a char pointer.
+     * This allows us to look at the very first byte in memory.
+     */
+    char *c = (char*)&x;
+
+    printf("Memory address inspection:\n");
+    if (*c == 1) {
+        printf("Result: Little-Endian (Byte '01' is stored first)\n");
+    } else {
+        printf("Result: Big-Endian (Byte '00' is stored first)\n");
+    }
+
+    return 0;
+}
+
+```
+
+---
+
+## 4. Key Differences in C Versions
+
+While endianness is a **hardware** property, C versions provide different tools to handle it:
+
+* **C89/90:** No standard way to detect endianness at compile-time; developers often wrote custom macros.
+* **C99:** Introduced `<stdint.h>`, making it easier to see exactly how many bytes you are dealing with (e.g., `uint32_t`).
+* **C11:** Often paired with modern compiler extensions (like GCC's `__BYTE_ORDER__`) to detect and handle endianness more safely during compilation.
+
+---
+
+## Relevant Links
+
+* [Endianness Explained - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Endianness)
+* [Byte Ordering and Byte Swapping - GNU](https://www.gnu.org/software/libc/manual/html_node/Byte-Order.html)
+* [Beej's Guide to Network Programming](https://www.google.com/search?q=https://beej.us/guide/bgnet/html/%23byte-order)
+
+**Would you like me to show you how to write a function that "flips" the bytes of an integer to convert it between the two formats?**
