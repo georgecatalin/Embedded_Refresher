@@ -1,4 +1,4 @@
-# Embedded_Refresher
+# Embedded Refresher
 
 A personal learning repository hosting practice projects and code examples from various Udemy courses focused on embedded systems, systems and microcontroller programming.
 
