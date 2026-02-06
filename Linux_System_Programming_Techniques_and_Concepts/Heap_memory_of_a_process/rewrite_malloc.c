@@ -44,6 +44,22 @@ Address →
 ^                    ^
 ptr                  ptr + 1   ← what we return
 
+
+Why NOT return ptr?
+
+If you did:
+
+return ptr;
+
+
+Then the caller would overwrite your metadata:
+
+char *p = xmalloc(10);
+strcpy(p, "hello");   // overwrites header
+
+
+Your allocator would be destroyed.That’s why allocators hide metadata before the returned pointer.
+
 */
 
 }
